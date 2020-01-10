@@ -38,3 +38,13 @@ node_modules/
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore requisite folder
+requisitos/
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
