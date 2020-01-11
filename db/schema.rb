@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_11_191806) do
+ActiveRecord::Schema.define(version: 2020_01_11_200510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_191806) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "professional_name"
     t.string "professional_function"
+    t.bigint "patient_id"
+    t.index ["patient_id"], name: "index_appointments_on_patient_id"
   end
 
   create_table "cid10s", force: :cascade do |t|
@@ -39,6 +41,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_191806) do
     t.string "unity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "patient_id"
+    t.index ["patient_id"], name: "index_cnes_on_patient_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -60,6 +64,13 @@ ActiveRecord::Schema.define(version: 2020_01_11_191806) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "psychoative_substances"
+  end
+
+  create_table "patients_cid10s", id: false, force: :cascade do |t|
+    t.bigint "patient_id"
+    t.bigint "cid10_id"
+    t.index ["cid10_id"], name: "index_patients_cid10s_on_cid10_id"
+    t.index ["patient_id"], name: "index_patients_cid10s_on_patient_id"
   end
 
 end
