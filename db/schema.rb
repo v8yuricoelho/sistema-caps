@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_11_184048) do
+ActiveRecord::Schema.define(version: 2020_01_11_191806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.date "date"
+    t.string "medicine_name"
+    t.float "medicine_dose"
+    t.string "medicine_dosage"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "professional_name"
+    t.string "professional_function"
+  end
 
   create_table "cid10s", force: :cascade do |t|
     t.string "code"
@@ -28,17 +39,6 @@ ActiveRecord::Schema.define(version: 2020_01_11_184048) do
     t.string "unity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "health_cares", force: :cascade do |t|
-    t.date "date"
-    t.string "medicine_name"
-    t.float "medicine_dose"
-    t.string "medicine_dosage"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "professional_name"
-    t.string "professional_function"
   end
 
   create_table "patients", force: :cascade do |t|
