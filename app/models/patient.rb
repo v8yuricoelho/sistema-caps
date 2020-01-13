@@ -1,6 +1,4 @@
 class Patient < ApplicationRecord
-    serialize :psychoative_substances, Array
-
     validates :medical_record_number, presence: true, uniqueness: true
     validates :name, presence: true
     validates :gender, presence: true
@@ -15,9 +13,10 @@ class Patient < ApplicationRecord
     validates :rg, presence: true, uniqueness: true, length: {is: 11}
     validates :county, presence: true
     validates :state, presence: true
-    validates :psychoative_substances, presence: true
 
-    has_many: appointments
-    has_and_belongs_to_many: cid10s
-    has_one: cne
+    has_many :appointments
+    has_many :professionals, through: :appointments
+    has_and_belongs_to_many :cid10s
+    has_and_belongs_to_many :psychoative_substances
+    has_one :cne
 end

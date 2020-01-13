@@ -10,20 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_11_200745) do
+ActiveRecord::Schema.define(version: 2020_01_13_031637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
-    t.date "date"
+    t.date "appointment_date"
     t.string "medicine_name"
     t.float "medicine_dose"
     t.string "medicine_dosage"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "professional_name"
-    t.string "professional_function"
     t.bigint "patient_id"
     t.index ["patient_id"], name: "index_appointments_on_patient_id"
   end
@@ -63,7 +61,6 @@ ActiveRecord::Schema.define(version: 2020_01_11_200745) do
     t.string "phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "psychoative_substances"
     t.bigint "cnes_id"
     t.index ["cnes_id"], name: "index_patients_on_cnes_id"
   end
@@ -73,6 +70,25 @@ ActiveRecord::Schema.define(version: 2020_01_11_200745) do
     t.bigint "cid10_id"
     t.index ["cid10_id"], name: "index_patients_cid10s_on_cid10_id"
     t.index ["patient_id"], name: "index_patients_cid10s_on_patient_id"
+  end
+
+  create_table "patients_psycho_substances", id: false, force: :cascade do |t|
+    t.bigint "patient_id"
+    t.bigint "psychoative_substance_id"
+    t.index ["patient_id"], name: "index_patients_psycho_substances_on_patient_id"
+    t.index ["psychoative_substance_id"], name: "index_patients_psycho_substances_on_psychoative_substance_id"
+  end
+
+  create_table "professionals", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.string "function"
+  end
+
+  create_table "psychoative_substances", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
