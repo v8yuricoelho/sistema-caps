@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_042610) do
+ActiveRecord::Schema.define(version: 2020_01_14_054501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_01_13_042610) do
     t.string "phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "psychoative_substances"
     t.bigint "cnes_id"
     t.boolean "status"
     t.index ["cnes_id"], name: "index_patients_on_cnes_id"
@@ -92,6 +93,7 @@ ActiveRecord::Schema.define(version: 2020_01_13_042610) do
   create_table "psychoative_substances", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
 end
