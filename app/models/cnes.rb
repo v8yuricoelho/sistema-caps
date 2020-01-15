@@ -1,6 +1,7 @@
-class Cne < ApplicationRecord
+class Cnes < ApplicationRecord
     validates :code, presence: true, uniqueness: true
     validates :unity, presence: true, uniqueness: true
 
-    belongs_to :patient
+    has_many :patients
+    has_many :appointments
 end

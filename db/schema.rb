@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_14_054501) do
+ActiveRecord::Schema.define(version: 2020_01_15_012206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,8 +41,6 @@ ActiveRecord::Schema.define(version: 2020_01_14_054501) do
     t.string "unity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "patient_id"
-    t.index ["patient_id"], name: "index_cnes_on_patient_id"
   end
 
   create_table "patients", force: :cascade do |t|

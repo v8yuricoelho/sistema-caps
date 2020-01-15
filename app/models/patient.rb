@@ -14,9 +14,9 @@ class Patient < ApplicationRecord
     validates :county, presence: true
     validates :state, presence: true
 
+    belongs_to :cnes
     has_many :appointments
     has_many :professionals, through: :appointments
     has_and_belongs_to_many :cid10s
     has_and_belongs_to_many :psychoative_substances
-    has_one :cne
 end
