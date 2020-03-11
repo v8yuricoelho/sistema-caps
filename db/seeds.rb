@@ -22,3 +22,26 @@ Cnes.create(code: 2601168, unity: "USF Vila Bahia")
 Cnes.create(code: 2600811, unity: "USF Joaquim Silva - Boa Vista da Tapera")
 Cnes.create(code: 2601281, unity: "USF Antônio Fernandes Rocha - Cajazeiras")
 Cnes.create(code: 2601176, unity: "USF Anacleto Aposto Evangelista - Cabeceira da Forquilha")
+
+### ------------ FOR DEVELOPMENT TESTS ------------ ###
+10.times do
+    Patient.create({
+        medical_record_number: Faker::Number.unique.within(range: 1..10),
+        name: Faker::Name.name_with_middle,
+        gender: Faker::Gender.type,
+        birthdate: Faker::Date.between(from: 110.years.ago, to: 2.years.ago),
+        admission_date: Faker::Date.between(from: 10.years.ago, to: Date.today),
+        age: Faker::Number.between(from: 2, to: 110),
+        marital_status: Faker::Demographic.marital_status,
+        mother_name: Faker::Name.name_with_middle,
+        father_name: Faker::Name.name_with_middle,
+        sus_card: Faker::Number.unique.number(digits: 15),
+        cpf: Faker::IDNumber.unique.brazilian_citizen_number,
+        rg: Faker::Number.unique.number(digits: 11),
+        county: Faker::Address.city,
+        adress: Faker::Address.street_address,
+        phone: Faker::PhoneNumber.cell_phone,
+        status: Faker::Subscription.status,
+        cnes_id: Cnes.all.sample.id
+    })
+end

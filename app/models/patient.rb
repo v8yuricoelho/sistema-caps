@@ -5,14 +5,15 @@ class Patient < ApplicationRecord
     validates :birthdate, presence: true
     validates :admission_date, presence: true 
     validates :age, presence: true
-    validates :civil_status
-    validates :mother_name
-    validates :father_name
+    validates :marital_status, presence: true
+    # validates :mother_name, presence: true
+    # validates :father_name, presence: true
     validates :sus_card, presence: true, uniqueness: true, length: {is: 15}
     validates :cpf, presence: true, uniqueness: true, length: {is: 11}
     validates :rg, presence: true, uniqueness: true, length: {is: 11}
     validates :county, presence: true
-    validates :state, presence: true
+    validates :adress, presence: true
+    validates :status, presence: true
 
     belongs_to :cnes
     has_many :appointments

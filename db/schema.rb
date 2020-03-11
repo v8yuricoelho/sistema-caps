@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_15_012206) do
+ActiveRecord::Schema.define(version: 2020_01_15_022841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2020_01_15_012206) do
     t.date "birthdate"
     t.date "admission_date"
     t.integer "age"
-    t.string "civil_status"
+    t.string "marital_status"
     t.string "mother_name"
     t.string "father_name"
     t.string "sus_card"
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 2020_01_15_012206) do
     t.string "phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "psychoative_substances"
     t.bigint "cnes_id"
     t.boolean "status"
     t.index ["cnes_id"], name: "index_patients_on_cnes_id"
