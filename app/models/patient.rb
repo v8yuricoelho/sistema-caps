@@ -16,6 +16,7 @@ class Patient < ApplicationRecord
     validates :status, presence: true
 
     belongs_to :cnes
+    belongs_to :agent
     has_many :appointments
     has_many :professionals, through: :appointments
     has_and_belongs_to_many :cid10s

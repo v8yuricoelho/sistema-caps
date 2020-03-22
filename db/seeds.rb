@@ -23,7 +23,19 @@ Cnes.create(code: 2600811, unity: "USF Joaquim Silva - Boa Vista da Tapera")
 Cnes.create(code: 2601281, unity: "USF Antônio Fernandes Rocha - Cajazeiras")
 Cnes.create(code: 2601176, unity: "USF Anacleto Aposto Evangelista - Cabeceira da Forquilha")
 
+PsychoativeSubstance.create(name: "Álcool")
+PsychoativeSubstance.create(name: "Cocaína")
+PsychoativeSubstance.create(name: "Crack")
+PsychoativeSubstance.create(name: "Outras Drogas")
+
 ### ------------ FOR DEVELOPMENT TESTS ------------ ###
+5.times do
+    Agent.create({
+        name: Faker::Name.name_with_middle, 
+        cnes_id: Cnes.all.sample.id
+    })
+end
+
 10.times do
     Patient.create({
         medical_record_number: Faker::Number.unique.within(range: 1..10),
@@ -42,6 +54,7 @@ Cnes.create(code: 2601176, unity: "USF Anacleto Aposto Evangelista - Cabeceira d
         adress: Faker::Address.street_address,
         phone: Faker::PhoneNumber.cell_phone,
         status: Faker::Subscription.status,
-        cnes_id: Cnes.all.sample.id
+        cnes_id: Cnes.all.sample.id,
+        agent_id: Agent.all.sample.id
     })
 end
