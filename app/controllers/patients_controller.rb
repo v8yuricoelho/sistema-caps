@@ -15,8 +15,12 @@ class PatientsController < ApplicationController
   end
 
   def show
+    patient = Patient.find(params[:id])
+    render json: {data: patient}, status: :ok
   end
 
   def index
+    patients = Patient.order(:id)
+    render json: {data: patients}, status: :ok
   end
 end

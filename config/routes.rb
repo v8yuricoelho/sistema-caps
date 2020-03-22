@@ -1,24 +1,5 @@
 Rails.application.routes.draw do
-  get 'cnes/new'
-  get 'cnes/create'
-  get 'cnes/update'
-  get 'cnes/edit'
-  get 'cnes/destroy'
-  get 'cnes/show'
-  get 'cnes/index'
-  get 'appointments/new'
-  get 'appointments/create'
-  get 'appointments/update'
-  get 'appointments/edit'
-  get 'appointments/destroy'
-  get 'appointments/show'
-  get 'appointments/index'
-  get 'patients/new'
-  get 'patients/create'
-  get 'patients/update'
-  get 'patients/edit'
-  get 'patients/destroy'
-  get 'patients/show'
-  get 'patients/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  resources :patients
 end
