@@ -18,7 +18,7 @@ class PatientsController < ApplicationController
     if patient.update_attributes(patient_params)
       render json: { status: "SUCCESS", message: "You updated the patient record in the database", data: patient }, status: :ok
     else
-      render json: { status: "ERROR", message: "You were unable to update the patient record. Please try again", data: patien.errors }, status: :unprocessable_entity
+      render json: { status: "ERROR", message: "You were unable to update the patient record. Please try again", data: patient.errors }, status: :unprocessable_entity
     end
   end
 
@@ -43,10 +43,10 @@ class PatientsController < ApplicationController
 
     render json: { status: "SUCCESS", message: "See all patients below", data: patients }, status: :ok
   end
-end
 
-private
-def patient_params
-  params.require(:patient).permit(:medical_record_number, :name, :gender, :birthdate, :admission_date, :age, :marital_status, :mother_name, :father_name, 
-  :sus_card, :cpf, :rg, :county, :adress, :phone, :cnes_id, :status, :agent_id)
+  private
+  def patient_params
+    params.require(:patient).permit(:medical_record_number, :name, :gender, :birthdate, :admission_date, :age, :marital_status, :mother_name, :father_name, 
+    :sus_card, :cpf, :rg, :county, :adress, :phone, :cnes_id, :status, :agent_id)
+  end
 end
