@@ -39,9 +39,8 @@ class PatientsController < ApplicationController
   end
 
   def index
-    patients = Patient.order(:id)
-
-    render json: { status: "SUCCESS", message: "See all patients below", data: patients }, status: :ok
+    @q = Patient.ransack(params[:q])
+    @patients = @q.result.page params[:page]
   end
 
   private

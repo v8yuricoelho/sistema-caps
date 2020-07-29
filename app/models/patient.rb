@@ -21,4 +21,6 @@ class Patient < ApplicationRecord
     has_many :professionals, through: :appointments
     has_and_belongs_to_many :cid10s
     has_and_belongs_to_many :psychoative_substances
+
+    paginates_per 5
 end

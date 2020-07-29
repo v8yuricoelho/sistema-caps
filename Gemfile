@@ -57,3 +57,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Added gems by developer
 gem 'pg'
+
+gem 'bootstrap', '~> 4.5.0'
+gem 'jquery-rails'
+gem 'font-awesome-sass'
+
+gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'kaminari'

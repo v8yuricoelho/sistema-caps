@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   resources :appointments
   resources :patients
   resources :professionals
+
+  root to: 'patients#index'
 end
