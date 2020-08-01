@@ -28,9 +28,9 @@ PsychoativeSubstance.create(name: "Outras Drogas")
     })
 end
 
-10.times do
+30.times do
     Patient.create({
-        medical_record_number: Faker::Number.unique.within(range: 1..10),
+        medical_record_number: Faker::Number.unique.within(range: 1..30),
         name: Faker::Name.name_with_middle,
         gender: Faker::Gender.type,
         birthdate: Faker::Date.between(from: 110.years.ago, to: 2.years.ago),

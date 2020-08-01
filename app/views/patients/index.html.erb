@@ -1,8 +1,8 @@
 <title>Sistema CAPS - Pacientes</title>
 
-<h2 class="text-center mt-4 mb-4">Lista de Pacientes</h2>
+<h4 class="text-center mt-4 mb-2">Lista de Pacientes</h4>
 
-<div class="container border shadow-sm rounded">
+<div class="container border shadow-sm rounded pb-3">
     <%= render 'search_form' %>
 
     <table class="table table-hover mt-2">
@@ -28,12 +28,17 @@
             <% end %>
         </tbody>
     </table>
-    <div class="row justify-content-around mt-4">
-        <div class="col">
-            <%= page_entries_info @patients %>
+
+    <div class="row justify-content-around">
+        <div class="col mt-2">
+            <%= page_entries_info @patients, entry_name: 'pacientes' %>
         </div>
         <div class="col align-self-end">
             <%= paginate @patients %>
         </div>
     </div>
 </div>
+
+<!-- <div class="mt-2">
+    <%= link_to 'Novo', new_patient_path, class: 'btn btn-primary shadow-sm' %>
+</div> -->
