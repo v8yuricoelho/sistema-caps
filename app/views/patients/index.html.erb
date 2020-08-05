@@ -11,6 +11,7 @@
                 <td>N.º de Prontuário</td>
                 <td>Nome</td>
                 <td>Unidade</td>
+                <td>Status</td>
                 <td colspan="2">
             </tr>
         </thead>
@@ -21,6 +22,7 @@
                     <td><%= patient.medical_record_number %></td>
                     <td><%= link_to patient.name, patient %></td>
                     <td><%= patient.cnes.unity %>
+                    <td><%= patient.status %>
                     <td><%= link_to '', edit_patient_path(patient), class: 'btn btn-outline-primary fas fa-edit fa-sm', title: 'Editar paciente' %></td>
                     <td><%= link_to '', patient, method: :delete, class: 'btn btn-outline-danger fas fa-trash-alt fa-sm', 
                     title: 'Deletar paciente', data: { confirm: 'Tem certeza que deseja deletar o estagiário?' } %></td>
@@ -38,7 +40,3 @@
         </div>
     </div>
 </div>
-
-<!-- <div class="mt-2">
-    <%= link_to 'Novo', new_patient_path, class: 'btn btn-primary shadow-sm' %>
-</div> -->

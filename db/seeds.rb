@@ -45,7 +45,7 @@ end
         county: Faker::Address.city,
         adress: Faker::Address.street_address,
         phone: Faker::PhoneNumber.cell_phone,
-        status: Faker::Subscription.status,
+        status: Faker::Number.within(range: 0..1),
         cnes_id: Cnes.all.sample.id,
         agent_id: Agent.all.sample.id
     })
