@@ -17,7 +17,7 @@
 
         <div class="form-group col-2">
             <%= f.label "" %>
-            <%= f.collection_select(:cid10s_code_cont, Cid10.all.order(:code), :code, :code, {include_blank: 'CID 10'}, class: 'form-control') %>
+            <%= f.search_field :cid10s_code_cont, class: 'form-control', placeholder: 'Código CID-10' %>
         </div>
 
         <div class="form-group col-3">

@@ -1,2 +1,40 @@
-<h1>Appointments#index</h1>
-<p>Find me in app/views/appointments/index.html.erb</p>
+<title>Sistema CAPS - Consultas</title>
+
+<h4 class="text-center mt-4 mb-2">Consultas</h4>
+
+<div class="container border shadow-sm rounded pb-3">
+    <%= render 'search_form' %>
+
+    <table class="table table-hover mt-2">
+        <thead class="">
+            <tr class="font-weight-bold">
+                <td>Paciente</td>
+                <td>Data</td>
+                <td>Unidade</td>
+                <td colspan="2">
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @appointments.each do |appointment| %>
+                <tr>
+                    <td><%= appointment.patient.name %></td>
+                    <td><%= appointment.appointment_date %></td>
+                    <td><%= appointment.cnes.unity %>
+                    <td><%= link_to '', edit_appointment_path(appointment), class: 'btn btn-outline-primary fas fa-edit fa-sm', title: 'Editar consulta' %></td>
+                    <td><%= link_to '', appointment, method: :delete, class: 'btn btn-outline-danger fas fa-trash-alt fa-sm', 
+                    title: 'Deletar consulta', data: { confirm: 'Tem certeza que deseja deletar a consulta?' } %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+    <div class="row justify-content-around">
+        <div class="col mt-2">
+            <%= page_entries_info @appointments, entry_name: 'consultas' %>
+        </div>
+        <div class="col align-self-end">
+            <%= paginate @appointments %>
+        </div>
+    </div>
+</div>

@@ -39,9 +39,8 @@ class AppointmentsController < ApplicationController
   end
 
   def index
-    appointments = Appointment.order(:id)
-
-    render json: { status: "SUCCESS", message: "See all appointment below", data: appointments }, status: :ok
+    @q = Appointment.ransack(params[:q])
+    @appointments = @q.result.page params[:page]
   end
 
   private

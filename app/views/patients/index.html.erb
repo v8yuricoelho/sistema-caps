@@ -25,7 +25,7 @@
                     <td><%= patient.status %>
                     <td><%= link_to '', edit_patient_path(patient), class: 'btn btn-outline-primary fas fa-edit fa-sm', title: 'Editar paciente' %></td>
                     <td><%= link_to '', patient, method: :delete, class: 'btn btn-outline-danger fas fa-trash-alt fa-sm', 
-                    title: 'Deletar paciente', data: { confirm: 'Tem certeza que deseja deletar o estagiário?' } %></td>
+                    title: 'Deletar paciente', data: { confirm: 'Tem certeza que deseja deletar o paciente?' } %></td>
                 </tr>
             <% end %>
         </tbody>

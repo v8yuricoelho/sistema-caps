@@ -3,9 +3,7 @@
 one:
   code: MyString
   description: MyString
-  category: MyString
 
 two:
   code: MyString
   description: MyString
-  category: MyString

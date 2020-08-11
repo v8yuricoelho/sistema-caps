@@ -1,0 +1,38 @@
+<title>Sistema CAPS - Agentes</title>
+
+<h4 class="text-center mt-4 mb-2">Lista de Agentes</h4>
+
+<div class="container border shadow-sm rounded pb-3">
+    <%= render 'search_form' %>
+
+    <table class="table table-hover mt-2">
+        <thead class="">
+            <tr class="font-weight-bold">
+                <td>Nome</td>
+                <td>Unidade</td>
+                <td colspan="2">
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @agents.each do |agent| %>
+                <tr>
+                    <td><%= link_to agent.name, agent %></td>
+                    <td><%= agent.cnes.unity %>
+                    <td><%= link_to '', edit_agent_path(agent), class: 'btn btn-outline-primary fas fa-edit fa-sm', title: 'Editar agente' %></td>
+                    <td><%= link_to '', agent, method: :delete, class: 'btn btn-outline-danger fas fa-trash-alt fa-sm', 
+                    title: 'Deletar agente', data: { confirm: 'Tem certeza que deseja deletar o agente?' } %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+    <div class="row justify-content-around">
+        <div class="col mt-2">
+            <%= page_entries_info @agents, entry_name: 'agentes' %>
+        </div>
+        <div class="col align-self-end">
+            <%= paginate @agents %>
+        </div>
+    </div>
+</div>

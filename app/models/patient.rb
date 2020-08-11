@@ -8,8 +8,6 @@ class Patient < ApplicationRecord
     validates :admission_date, presence: true 
     validates :age, presence: true
     validates :marital_status, presence: true
-    # validates :mother_name, presence: true
-    # validates :father_name, presence: true
     validates :sus_card, presence: true, uniqueness: true, length: {is: 15}
     validates :cpf, presence: true, uniqueness: true, length: {is: 11}
     validates :rg, presence: true, uniqueness: true, length: {is: 11}
@@ -23,6 +21,4 @@ class Patient < ApplicationRecord
     has_many :professionals, through: :appointments
     has_and_belongs_to_many :cid10s
     has_and_belongs_to_many :psychoative_substances
-
-    paginates_per 10
 end

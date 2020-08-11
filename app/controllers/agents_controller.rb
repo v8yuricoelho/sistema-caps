@@ -39,8 +39,12 @@ class AgentsController < ApplicationController
     end
   
     def index
-      agents = Agent.order(:id)
-  
-      render json: { status: "SUCCESS", message: "See all agent below", data: agents }, status: :ok
+      @q = Agent.ransack(params[:q])
+      @agents = @q.result.page params[:page]
+    end
+
+    private
+    def professional_params
+        params.require(:agent).permit(:name, :email, :phone, :address, :cnes_id)
     end
 end

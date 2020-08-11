@@ -1,0 +1,40 @@
+<title>Sistema CAPS - Funcionários</title>
+
+<h4 class="text-center mt-4 mb-2">Lista de Funcionários</h4>
+
+<div class="container border shadow-sm rounded pb-3">
+    <%= render 'search_form' %>
+
+    <table class="table table-hover mt-2">
+        <thead class="">
+            <tr class="font-weight-bold">
+                <td>Nome</td>
+                <td>Cargo</td>
+                <td>Unidade</td>
+                <td colspan="2">
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @professionals.each do |professional| %>
+                <tr>
+                    <td><%= link_to professional.name, professional %></td>
+                    <td><%= professional.function %>
+                     <td><%= professional.cnes.unity %>
+                    <td><%= link_to '', edit_professional_path(professional), class: 'btn btn-outline-primary fas fa-edit fa-sm', title: 'Editar funcionário' %></td>
+                    <td><%= link_to '', professional, method: :delete, class: 'btn btn-outline-danger fas fa-trash-alt fa-sm', 
+                    title: 'Deletar funcionário', data: { confirm: 'Tem certeza que deseja deletar o funcionário?' } %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+    <div class="row justify-content-around">
+        <div class="col mt-2">
+            <%= page_entries_info @professionals, entry_name: 'funcionários' %>
+        </div>
+        <div class="col align-self-end">
+            <%= paginate @professionals %>
+        </div>
+    </div>
+</div>

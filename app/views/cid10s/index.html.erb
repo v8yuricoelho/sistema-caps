@@ -1,0 +1,38 @@
+<title>Sistema CAPS - Pacientes</title>
+
+<h4 class="text-center mt-4 mb-2">Classificação Estatística Internacional de Doenças e Problemas Relacionados com a Saúde</h4>
+
+<div class="container border shadow-sm rounded pb-3">
+    <%= render 'search_form' %>
+
+    <table class="table table-hover mt-2">
+        <thead class="">
+            <tr class="font-weight-bold">
+                <td>Código</td>
+                <td>Descrição</td>
+                <td colspan="2">
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @cid10s.each do |cid10| %>
+                <tr>
+                    <td><%= link_to cid10.code, cid10 %></td>
+                    <td><%= cid10.description %></td>
+                    <td><%= link_to '', edit_cid10_path(cid10), class: 'btn btn-outline-primary fas fa-edit fa-sm', title: 'Editar CID-10' %></td>
+                    <td><%= link_to '', cid10, method: :delete, class: 'btn btn-outline-danger fas fa-trash-alt fa-sm', 
+                    title: 'Deletar CID-10', data: { confirm: 'Tem certeza que deseja deletar o CID-10?' } %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+    <div class="row justify-content-around">
+        <div class="col mt-2">
+            <%= page_entries_info @cid10s, entry_name: 'doenças' %>
+        </div>
+        <div class="col align-self-end">
+            <%= paginate @cid10s %>
+        </div>
+    </div>
+</div>

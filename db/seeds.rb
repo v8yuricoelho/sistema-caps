@@ -1,3 +1,16 @@
+### ------------ SQL FILES IMPORT ------------ ###
+connection = ActiveRecord::Base.connection
+
+sql = File.read('db/cid10.sql') # Change path and filename as necessary
+statements = sql.split(/;$/)
+statements.pop
+
+ActiveRecord::Base.transaction do
+  statements.each do |statement|
+    connection.execute(statement)
+  end
+end
+
 Cnes.create(code: 5468345, unity: "CAPS I - Cristina Palles")
 Cnes.create(code: 2601273, unity: "Centro de Saúde de Encruzilhada")
 Cnes.create(code: 7300174, unity: "Farmácia Básica de Encruzilhada")

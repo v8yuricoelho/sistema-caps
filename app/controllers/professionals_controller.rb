@@ -41,13 +41,12 @@ class ProfessionalsController < ApplicationController
     end
   
     def index
-        professionals = Professional.order(:id)
-
-        render json: { status: "SUCESS", message: "See all professionals below", data: professionals }, status: :ok
+        @q = Professional.ransack(params[:q])
+        @professionals = @q.result.page params[:page]
     end
 
     private
     def professional_params
-        params.require(:professional).permit(:name, :function)
+        params.require(:professional).permit(:name, :function, :email, :phone, :address, :cnes_id)
     end
 end
