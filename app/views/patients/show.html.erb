@@ -1,0 +1,127 @@
+<div class="container border shadow-sm rounded mt-2">
+    <div class="text-primary text-center mt-3"><h6><strong>FICHA DO PACIENTE</strong></h6></div>
+    <hr class="mb-2"/>
+
+    <div class="row justify-content-center mb-2">
+        <div class="col-4">
+            <div class="text-center"><strong>Nome</strong></div>
+            <div class="text-center"><%= @patient.name %></div>
+        </div>
+        <div class="col-4">
+            <div class="text-center"><strong>Gênero</strong></div>
+            <div class="text-center"><%= @patient.gender %></div>
+        </div>
+        <div class="col-4">
+            <div class="text-center"><strong>Estado Civil</strong></div>
+            <div class="text-center"><%= @patient.marital_status %></div>
+        </div>
+    </div>
+
+    <hr class="mb-2"/>
+
+    <div class="row justify-content-center mb-2">
+        <div class="col-4">
+            <div class="text-center"><strong>Data de Nascimento</strong></div>
+            <div class="text-center"><%= @patient.birthdate %></div>
+        </div>
+        <div class="col-4">
+            <div class="text-center"><strong>Data de Admissão</strong></div>
+            <div class="text-center"><%= @patient.admission_date %></div>
+        </div>
+        <div class="col-4">
+            <div class="text-center"><strong>Idade</strong></div>
+            <div class="text-center"><%= @patient.age %> anos</div>
+        </div>
+    </div>
+
+    <hr class="mb-2"/>
+
+    <div class="row justify-content-center mb-2">
+        <div class="col-4">
+            <div class="text-center"><strong>Nome do Pai</strong></div>
+            <div class="text-center"><%= @patient.father_name %></div>
+        </div>
+        <div class="col-4">
+            <div class="text-center"><strong>Nome da Mãe</strong></div>
+            <div class="text-center"><%= @patient.mother_name %></div>
+        </div>
+        <div class="col-4">
+            <div class="text-center"><strong>Nome do Agente Responsável</strong></div>
+            <div class="text-center"><%= @patient.agent.name %></div>
+        </div>
+    </div>
+
+    <hr class="mb-2"/>
+
+     <div class="row justify-content-center mb-2">
+        <div class="col-4">
+            <div class="text-center"><strong>RG</strong></div>
+            <div class="text-center"><%= @patient.rg %></div>
+        </div>
+        <div class="col-4">
+            <div class="text-center"><strong>CPF</strong></div>
+            <div class="text-center"><%= @patient.cpf %></div>
+        </div>
+        <div class="col-4">
+            <div class="text-center"><strong>CNES - Unidade</strong></div>
+            <div class="text-center"><%= @patient.cnes.unity %></div>
+        </div>
+    </div>
+
+    <hr class="mb-2"/>
+
+    <div class="row justify-content-center mb-2">
+        <div class="col-4">
+            <div class="text-center"><strong>Cidade / Distrito</strong></div>
+            <div class="text-center"><%= @patient.county %></div>
+        </div>
+        <div class="col-4">
+            <div class="text-center"><strong>Endereço</strong></div>
+            <div class="text-center"><%= @patient.adress %></div>
+        </div>
+        <div class="col-4">
+            <div class="text-center"><strong>Fone</strong></div>
+            <div class="text-center"><%= @patient.phone%></div>
+        </div>
+    </div>
+
+    <hr class="mb-2"/>
+
+    <div class="row justify-content-center mb-2">
+        <div class="col-4">
+            <div class="text-center"><strong>CID-10</strong></div>
+            <div class="text-center">Psicopatia; Sociopatia; Esquizofrenia</div>
+        </div>
+    </div>
+
+    <hr class="mb-2"/>
+    
+    <div class="row justify-content-center mb-2">
+        <div class="col-4">
+            <div class="text-center"><strong></strong></div>
+            <div class="text-center"></div>
+        </div>
+    </div>
+
+    <hr class="mb-3"/>
+
+    <div class="text-center mb-3">
+        <%= link_to ('Voltar'), patients_path, class: 'btn btn-dark shadow-sm' %>
+        <%= link_to ('Editar'), edit_patient_path(@patient), class: 'btn btn-primary shadow-sm' %>
+    </div>
+
+    <!-- <div class="text-primary text-center mt-3"><h6><strong>FICHA DO PACIENTE</strong></h6></div>
+    <hr class="mb-2">
+    <div class="mb-2"><strong>Nome</strong><%= @patient.name %></div>
+    <div class=mb-2><strong>Gênero: </strong><%= @patient.gender %></div>
+    <div class="mb-2"><strong>Data de Nascimento: </strong><%= @patient.birthdate %> (<%= @patient.age %> anos)</div>
+    <div class="mb-2"><strong>Data de Admissão: </strong><%= @patient.admission_date %></div>
+    <div class="mb-2"><strong>Estado Civil: </strong><%= @patient.marital_status %></div>
+    <div class="mb-2"><strong>Nome da Mãe: </strong><%= @patient.mother_name %></div>
+    <div class="mb-2"><strong>Nome do Pai: </strong><%= @patient.father_name %></div>
+    <div class="mb-2"><strong>CPF: </strong><%= @patient.cpf %></div>
+    <div class="mb-2"><strong>RG: </strong><%= @patient.rg %></div>
+    <div class="mb-2"><strong>Cidade / Distrito: </strong><%= @patient.county %></div>
+    <div class="mb-2"><strong>Endereço: </strong><%= @patient.adress %></div>
+    <div class="mb-2"><strong>Telefone: </strong><%= @patient.phone %></div> -->
+</div>
