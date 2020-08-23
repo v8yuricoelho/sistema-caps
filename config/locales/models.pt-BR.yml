@@ -1,0 +1,27 @@
+pt-BR:  
+  activerecord:
+    models:
+      agent:
+        one: Agente
+        other: Agentes
+      appointment:
+        one: Consulta
+        other: Consultas
+      cid10:
+        one: CID-1O
+        other: CID-10
+      cnes:
+        one: CNES
+        other: CNES
+      patient:
+        one: Paciente
+        other: Pacientes
+      professional:
+        one: Profissional
+        other: Profissionais
+      psychoative_substance:
+        one: Substância Psicoativa
+        other: Substâncias Psicoativas
+    
+        
+        

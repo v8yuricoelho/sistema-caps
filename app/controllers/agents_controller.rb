@@ -1,4 +1,6 @@
 class AgentsController < ApplicationController
+    before_action :set_agent, only: [:edit, :show, :update, :destroy]
+
     def new
     end
   
@@ -33,9 +35,6 @@ class AgentsController < ApplicationController
     end
   
     def show
-      agent = Agent.find(params[:id])
-  
-      render json: { status: "SUCCESS", message: "See the information of your loaded agent below", data: agent }, status: :ok
     end
   
     def index
@@ -46,5 +45,9 @@ class AgentsController < ApplicationController
     private
     def professional_params
         params.require(:agent).permit(:name, :email, :phone, :address, :cnes_id)
+    end
+
+    def set_agent
+      @agent = Agent.find(params[:id])
     end
 end

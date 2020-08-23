@@ -1,0 +1,160 @@
+<h4 class="text-center mt-4 mb-2">Adicionar Paciente</h4>
+
+<%= form_for (@patient) do |f| %>
+    <%= render 'shared/error_messages', object: @patient if @patient.errors.any? %>
+
+    <div class="container shadow rounded mt-3 mb-2">
+
+        <div class="text-secondary pt-3"><h6><strong>Informações Básicas</strong></h6></div>
+        <hr class="mb-3 border"/>
+
+         <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :medical_record_number, 'Número de Prontuário' %>
+                <%= f.text_field :medical_record_number, class: 'form-control', placeholder: 'Digite o número de prontuário' %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :name, 'Nome' %>
+                <%= f.text_field :name, class: 'form-control', placeholder: 'Digite o nome completo' %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center justify-content-center">
+            <div class="col-7">
+                <%= f.label :gender, 'Gênero' %>
+                <%= f.select :gender, options_for_select(Patient.genders.map { |key, value| [key.humanize, key] }, selected: @patient.gender), 
+                {include_blank: 'Selecione...'}, class: 'form-control' %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :marital_status, 'Estado Civil' %>
+                <%= f.select :marital_status, options_for_select(Patient.marital_statuses.map { |key, value| [key.humanize, key] }, selected: @patient.marital_status), 
+                {include_blank: 'Selecione...'}, class: 'form-control' %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :birthdate, 'Data de Nascimento' %>
+                <%= f.date_field :birthdate, class: 'form-control' %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+                <div class="col-7">
+                    <%= f.label :age, 'Idade' %>
+                    <%= f.text_field :age, class: 'form-control', placeholder: 'Digite a idade (somente números)' %>
+                </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :admission_date, 'Data de Admissão' %>
+                <%= f.date_field :admission_date, class: 'form-control' %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :father_name, 'Nome do Pai' %>
+                <%= f.text_field :father_name, class: 'form-control', placeholder: 'Digite o nome do pai completo' %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :mother_name, 'Nome da Mãe' %>
+                <%= f.text_field :mother_name, class: 'form-control', placeholder: 'Digite o nome da mãe completo' %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :cnes_id, 'Unidade' %>
+                <%= f.collection_select(:cnes_id, Cnes.all, :id, :unity, {include_blank: 'Selecione...'}, class: 'form-control') %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :agent_id, 'ACS' %>
+                <%= f.collection_select(:agent_id, Agent.all, :id, :name, {include_blank: 'Selecione...'}, class: 'form-control') %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :rg, 'RG' %>
+                <%= f.text_field :rg, class: 'form-control', placeholder: 'Digite o RG (somente números)'%>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :cpf, 'CPF' %>
+                <%= f.text_field :cpf, class: 'form-control', placeholder: 'Digite o CPF (somente números)'%>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :sus_card, 'Cartão SUS' %>
+                <%= f.text_field :sus_card, class: 'form-control', placeholder: 'Digite o cartão SUS (somente números)' %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :adress, 'Endereço' %>
+                <%= f.text_field :adress, class: 'form-control', placeholder: 'Digite o endereço' %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :phone, 'Fone' %>
+                <%= f.text_field :phone, class: 'form-control', placeholder: 'Digite o telefone (somente números)' %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :psychoative_substance_ids, 'Substâncias Psicoativas' %>
+                <%= f.collection_select(:psychoative_substance_ids, PsychoativeSubstance.all, :id, :name, 
+                {include_blank: "Pressione 'Ctrl' para seleção múltipla..."}, {multiple: true, class: 'form-control'}) %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :cid10_ids, 'CID-1O' %>
+                <%= f.collection_select(:cid10_ids, Cid10.all, :id, :code, 
+                {include_blank: "Pressione 'Ctrl' para seleção múltipla..."}, {multiple: true, class: 'form-control'}) %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :status, 'Status' %><br/>
+                <div class="form-check-inline">
+                    <%= f.radio_button :status, 'Ativo', class: 'form-check-input' %>
+                    <%= f.label :status, 'Ativo', value: 0, class: 'form-check-label' %>
+                    <%= f.radio_button :status, 'Inativo', class: 'form-check-input ml-2' %>
+                    <%= f.label :status, 'Inativo', value: 1, class: 'form-check-label' %>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center pt-2 pb-2">
+            <div class="col-7">
+                <%= link_to 'Cancelar', patient_path, class: 'btn btn-secondary shadow-sm', title: 'Voltar para a ficha do paciente' %>
+                <%= f.submit 'Salvar', class: 'btn btn-primary shadow-sm ml-2', title: 'Registrar novo paciente' %>
+            </div>
+        </div>
+    </div>
+<% end %>

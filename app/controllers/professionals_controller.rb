@@ -1,5 +1,5 @@
 class ProfessionalsController < ApplicationController
-    skip_before_action :verify_authenticity_token
+    before_action :set_professional, only: [:edit, :show, :update, :destroy]
 
     def new
     end
@@ -35,9 +35,6 @@ class ProfessionalsController < ApplicationController
     end
   
     def show
-        professional = Professional.find(params[:id])
-
-        render json: { status: "SUCCESS", message: "See the information of your loaded professional below", data: professional }, status: :ok
     end
   
     def index
@@ -48,5 +45,9 @@ class ProfessionalsController < ApplicationController
     private
     def professional_params
         params.require(:professional).permit(:name, :function, :email, :phone, :address, :cnes_id)
+    end
+
+    def set_professional
+        @professional = Professional.find(params[:id])
     end
 end

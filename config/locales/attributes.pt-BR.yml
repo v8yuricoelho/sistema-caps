@@ -1,0 +1,19 @@
+pt-BR:  
+  activerecord:
+    attributes:
+      patient:
+        admission_date: Data de Admissão
+        adress: Endereço
+        age: Idade
+        birthdate: Data de Nascimento
+        cpf: CPF
+        father_name: Nome do Pai
+        gender: Gênero
+        marital_status: Estado Civil
+        medical_record_number: Número de Prontuário
+        mother_name: Nome da Mãe
+        name: Nome
+        phone: Fone
+        rg: RG
+        status: Status
+        sus_card: Cartão SUS

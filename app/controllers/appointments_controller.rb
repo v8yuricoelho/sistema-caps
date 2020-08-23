@@ -1,4 +1,6 @@
 class AppointmentsController < ApplicationController
+  before_action :set_appointment, only: [:edit, :show, :update, :destroy]
+
   def new
   end
 
@@ -33,9 +35,6 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    appointment = Appointment.find(params[:id])
-
-    render json: { status: "SUCCESS", message: "See the information of your loaded appointment below", data: appointment }, status: :ok
   end
 
   def index
@@ -45,6 +44,10 @@ class AppointmentsController < ApplicationController
 
   private
   def appointment_params
-    params.require(:appointment).permit(:appointment_date, :medicine_name, :medicine_dose, :patient_id, :professional_id)
+    params.require(:appointment).permit(:date, :medicine_name, :medicine_dose, :patient_id, :professional_id)
+  end
+
+  def set_appointment
+    @appointment = Appointment.find(params[:id])
   end
 end

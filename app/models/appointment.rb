@@ -1,5 +1,5 @@
 class Appointment < ApplicationRecord
-    validates :appointment_date, presence: true
+    validates :date, presence: true
 
     belongs_to :cnes
     belongs_to :patient

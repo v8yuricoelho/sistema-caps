@@ -1,0 +1,65 @@
+<h4 class="text-center mt-4 mb-2">Informações de Funcionário</h4>
+
+<div class="container shadow rounded mt-2">
+    <div class="text-secondary text-center pt-3"><h6><strong>FICHA DO FUNCIONÁRIO</strong></h6></div>
+    <hr class="mb-2 border">
+
+    <div class="row justify-content-center mb-2">
+        <div class="col">
+            <div class="text-center"><strong>Nome</strong></div>
+            <div class="text-center"><%= @professional.name %></div>
+        </div>
+    </div>
+
+    <hr class="mb-2">
+
+      <div class="row justify-content-center mb-2">
+        <div class="col">
+            <div class="text-center"><strong>Função</strong></div>
+            <div class="text-center"><%= @professional.function %></div>
+        </div>
+    </div>
+
+    <hr class="mb-2">
+
+    <div class="row justify-content-center mb-2">
+        <div class="col">
+            <div class="text-center"><strong>CNES - Unidade</strong></div>
+            <div class="text-center"><%= @professional.cnes.unity%></div>
+        </div>
+    </div>
+
+     <hr class="mb-2">
+
+    <div class="row justify-content-center mb-2">
+         <div class="col">
+            <div class="text-center"><strong>E-mail</strong></div>
+            <div class="text-center"><% if @professional.email.nil? %><div class="mb-4"></div><% else %><%= @professional.email %><% end %></div>
+        </div>
+    </div>
+
+    <hr class="mb-2">
+
+    <div class="row justify-content-center mb-2">
+        <div class="col">
+            <div class="text-center"><strong>Fone</strong></div>
+            <div class="text-center"><% if @professional.phone.nil? %><div class="mb-4"></div><% else %><%= @professional.phone %><% end %></div>
+        </div>
+    </div>
+
+    <hr class="mb-2">
+
+    <div class="row justify-content-center mb-2">
+        <div class="col">
+            <div class="text-center"><strong>Endereço</strong></div>
+            <div class="text-center"><% if @professional.address.nil? %><div class="mb-4"></div><% else %><%= @professional.address %><% end %></div>
+        </div>
+    </div>
+
+    <hr class="mb-3">
+
+    <div class="text-center pb-3">
+        <%= link_to ('Voltar'), professionals_path, class: 'btn btn-dark shadow-sm', title: 'Voltar para tabela de funcionários' %>
+        <%= link_to ('Editar'), edit_professional_path(@professional), class: 'btn btn-primary shadow-sm', title: 'Editar ficha do funcionário' %>
+    </div>
+</div>

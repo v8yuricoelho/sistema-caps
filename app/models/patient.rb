@@ -1,5 +1,7 @@
 class Patient < ApplicationRecord
     enum status: ['Ativo', 'Inativo']
+    enum gender: ['Masculino', 'Feminino', 'Outro']
+    enum marital_status: ['Solteiro(a)', 'Casado(a)', 'Divorciado(a)', 'Viúvo(a)', 'Separado(a)']
 
     validates :medical_record_number, presence: true, uniqueness: true
     validates :name, presence: true
@@ -7,11 +9,10 @@ class Patient < ApplicationRecord
     validates :birthdate, presence: true
     validates :admission_date, presence: true 
     validates :age, presence: true
-    validates :marital_status, presence: true
+    # validates :marital_status, presence: true
     validates :sus_card, presence: true, uniqueness: true, length: {is: 15}
     validates :cpf, presence: true, uniqueness: true, length: {is: 11}
-    validates :rg, presence: true, uniqueness: true, length: {is: 11}
-    validates :county, presence: true
+    validates :rg, presence: true, uniqueness: true, length: {in: 9..11}
     validates :adress, presence: true
     validates :status, presence: true
 

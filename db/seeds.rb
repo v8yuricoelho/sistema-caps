@@ -45,7 +45,7 @@ end
     Patient.create({
         medical_record_number: Faker::Number.unique.within(range: 1..30),
         name: Faker::Name.name_with_middle,
-        gender: Faker::Gender.type,
+        gender: Faker::Number.within(range: 0..2),
         birthdate: Faker::Date.between(from: 110.years.ago, to: 2.years.ago),
         admission_date: Faker::Date.between(from: 10.years.ago, to: Date.today),
         age: Faker::Number.between(from: 2, to: 110),
@@ -55,7 +55,6 @@ end
         sus_card: Faker::Number.unique.number(digits: 15),
         cpf: Faker::IDNumber.unique.brazilian_citizen_number,
         rg: Faker::Number.unique.number(digits: 11),
-        county: Faker::Address.city,
         adress: Faker::Address.street_address,
         phone: Faker::PhoneNumber.cell_phone,
         status: Faker::Number.within(range: 0..1),
