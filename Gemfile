@@ -54,13 +54,15 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# Added gems by developer
+# Pg is the Ruby interface to the PostgreSQL RDBMS
 gem 'pg'
-
+# Bootstrap rubygem for Rails / Sprockets / Hanami / etc 
 gem 'bootstrap', '~> 4.5.0'
+# A gem to automate using jQuery with Rails 
 gem 'jquery-rails'
+# Font-Awesome Sass gem for use in Ruby/Rails projects 
 gem 'font-awesome-sass'
-
+# Object-based searching. 
 gem 'ransack', github: 'activerecord-hackery/ransack'
-gem 'kaminari'
+# Mime type detection in ruby via file extension or file content 
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
