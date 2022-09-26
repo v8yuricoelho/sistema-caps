@@ -49,7 +49,7 @@ end
         birthdate: Faker::Date.between(from: 110.years.ago, to: 2.years.ago),
         admission_date: Faker::Date.between(from: 10.years.ago, to: Date.today),
         age: Faker::Number.between(from: 2, to: 110),
-        marital_status: Faker::Demographic.marital_status,
+        marital_status: Faker::Number.within(range: 0..3),
         mother_name: Faker::Name.name_with_middle,
         father_name: Faker::Name.name_with_middle,
         sus_card: Faker::Number.unique.number(digits: 15),
