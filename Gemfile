@@ -64,5 +64,7 @@ gem 'jquery-rails'
 gem 'font-awesome-sass'
 # Object-based searching. 
 gem 'ransack', github: 'activerecord-hackery/ransack'
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps 
+gem 'kaminari'
 # Mime type detection in ruby via file extension or file content 
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
