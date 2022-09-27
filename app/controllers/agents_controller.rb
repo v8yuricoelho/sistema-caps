@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 class AgentsController < ApplicationController
-  before_action :set_agent, only: %i[edit show update destroy]
+  before_action :set_agent, only: %i[edit show update]
 
-  def new; end
+  def new
+    @agent = Agent.new
+  end
 
   def create
-    @patient = Patient.new(patient_params)
+    @agent = Agent.new(agent_params)
 
     respond_to do |format|
       if @agent.save
@@ -19,8 +21,8 @@ class AgentsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @agent.update(patient_params)
-        format.html { redirect_to @patient }
+      if @agent.update(agent_params)
+        format.html { redirect_to @agent }
       else
         format.html { render :edit }
       end
@@ -38,7 +40,7 @@ class AgentsController < ApplicationController
 
   private
 
-  def professional_params
+  def agent_params
     params.require(:agent).permit(:name, :email, :phone, :address, :cnes_id)
   end
 

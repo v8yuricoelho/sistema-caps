@@ -1,0 +1,53 @@
+<h4 class="text-center mt-4 mb-2">Adicionar Agente</h4>
+
+<%= form_for (@agent) do |f| %>
+    <%= render 'shared/error_messages', object: @agent if @agent.errors.any? %>
+
+    <div class="container shadow rounded mt-3 mb-2">
+
+        <div class="text-secondary pt-3"><h6><strong>Informações Básicas</strong></h6></div>
+        <hr class="mb-3 border"/>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :name, 'Nome' %>
+                <%= f.text_field :name, class: 'form-control', placeholder: 'Digite o nome completo' %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :email, 'E-mail' %>
+                <%= f.text_field :email, class: 'form-control', placeholder: 'Digite o email' %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :address, 'Endereço' %>
+                <%= f.text_field :address, class: 'form-control', placeholder: 'Digite o endereço' %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :phone, 'Fone' %>
+                <%= f.text_field :phone, class: 'form-control', placeholder: 'Digite o telefone (somente números)' %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center">
+            <div class="col-7">
+                <%= f.label :cnes_id, 'Unidade' %>
+                <%= f.collection_select(:cnes_id, Cnes.all, :id, :unity, {include_blank: 'Selecione...'}, class: 'form-control') %>
+            </div>
+        </div>
+
+        <div class="form-group form-row justify-content-center pt-2 pb-2">
+            <div class="col-7">
+                <%= link_to 'Cancelar', agents_path, class: 'btn btn-secondary shadow-sm', title: 'Voltar' %>
+                <%= f.submit 'Salvar', class: 'btn btn-primary shadow-sm ml-2', title: 'Registrar novo agente' %>
+            </div>
+        </div>
+    </div>
+<% end %>
