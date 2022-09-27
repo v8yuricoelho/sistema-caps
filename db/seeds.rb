@@ -37,7 +37,10 @@ PsychoativeSubstance.create(name: "Outras Drogas")
 5.times do
     Agent.create({
         name: Faker::Name.name_with_middle, 
-        cnes_id: Cnes.all.sample.id
+        cnes_id: Cnes.all.sample.id,
+        email: Faker::Internet.free_email,
+        phone: Faker::PhoneNumber.cell_phone,
+        address: Faker::Address.street_address
     })
 end
 

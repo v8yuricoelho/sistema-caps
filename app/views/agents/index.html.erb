@@ -20,8 +20,6 @@
                     <td><%= link_to agent.name, agent %></td>
                     <td><%= agent.cnes.unity %>
                     <td><%= link_to '', edit_agent_path(agent), class: 'btn btn-outline-primary fas fa-edit fa-sm', title: 'Editar agente' %></td>
-                    <td><%= link_to '', agent, method: :delete, class: 'btn btn-outline-danger fas fa-trash-alt fa-sm', 
-                    title: 'Deletar agente', data: { confirm: 'Tem certeza que deseja deletar o agente?' } %></td>
                 </tr>
             <% end %>
         </tbody>

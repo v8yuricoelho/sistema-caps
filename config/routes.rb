@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  resources :agents
-  resources :appointments
-  resources :cid10s
-  resources :patients
-  resources :professionals
+  resources :agents, except: :delete
+  resources :patients, except: :delete
 
   root to: 'patients#index'
 end

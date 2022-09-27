@@ -5,33 +5,28 @@ class AgentsController < ApplicationController
     end
   
     def create
-      agent = Agent.new(agent_params)
-        
-      if agent.save
-        render json: { status: "SUCCESS", message: "You created a new apgent in the database. See below", data: agent }, status: :ok
-      else
-        render json: { status: "ERROR", message: "You were unable to save a new agent. Please try again", data: agent.errors }, status: :unprocessable_entity
+      @patient = Patient.new(patient_params)
+    
+      respond_to do |format|
+        if @agent.save
+          format.html { redirect_to @agent }
+        else
+          format.html { render :new }
+        end
       end
     end
   
     def update
-      agent = Agent.find(params[:id])
-  
-      if agent.update_attributes(agent_params)
-        render json: { status: "SUCCESS", message: "You updated the agent record in the database", data: agent }, status: :ok
-      else
-        render json: { status: "ERROR", message: "You were unable to update the agent record. Please try again", data: agent.errors }, status: :unprocessable_entity
+      respond_to do |format|
+        if @agent.update(patient_params)
+            format.html { redirect_to @patient }
+        else
+            format.html { render :edit }
+        end
       end
     end
   
     def edit
-    end
-  
-    def destroy
-      agent = Agent.find(params[:id])
-  
-      agent.destroy
-      render json: { status: "SUCCESS", message: "You deleted an agent record", data: agent }, status: :ok
     end
   
     def show
