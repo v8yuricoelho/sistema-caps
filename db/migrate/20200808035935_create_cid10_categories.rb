@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCid10Categories < ActiveRecord::Migration[6.0]
   def change
     create_table :cid10_categories do |t|

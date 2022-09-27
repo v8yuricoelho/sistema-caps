@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCid10Chapters < ActiveRecord::Migration[6.0]
   def change
     create_table :cid10_chapters do |t|

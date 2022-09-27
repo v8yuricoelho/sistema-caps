@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PatientsController < ApplicationController
-  before_action :set_patient, only: [:edit, :show, :update, :destroy]
+  before_action :set_patient, only: %i[edit show update destroy]
 
   def new
     @patient = Patient.new
@@ -7,7 +9,7 @@ class PatientsController < ApplicationController
 
   def create
     @patient = Patient.new(patient_params)
-    
+
     respond_to do |format|
       if @patient.save
         format.html { redirect_to @patient }
@@ -20,18 +22,16 @@ class PatientsController < ApplicationController
   def update
     respond_to do |format|
       if @patient.update(patient_params)
-          format.html { redirect_to @patient }
+        format.html { redirect_to @patient }
       else
-          format.html { render :edit }
+        format.html { render :edit }
       end
     end
   end
 
-  def edit
-  end
+  def edit; end
 
-  def show
-  end
+  def show; end
 
   def index
     @q = Patient.ransack(params[:q])
@@ -39,10 +39,10 @@ class PatientsController < ApplicationController
   end
 
   private
-  
+
   def patient_params
-    params.require(:patient).permit(:medical_record_number, :name, :gender, :birthdate, :admission_date, :age, :marital_status, :mother_name, :father_name, 
-    :sus_card, :cpf, :rg, :county, :adress, :phone, :cnes_id, :status, :agent_id, psychoative_substance_ids: [], cid10_ids: [])
+    params.require(:patient).permit(:medical_record_number, :name, :gender, :birthdate, :admission_date, :age, :marital_status, :mother_name, :father_name,
+                                    :sus_card, :cpf, :rg, :county, :adress, :phone, :cnes_id, :status, :agent_id, psychoative_substance_ids: [], cid10_ids: [])
   end
 
   def set_patient

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -13,7 +15,7 @@ module SistemaCaps
 
     config.i18n.default_locale = 'pt-BR'
 
-    Date::DATE_FORMATS[:default] = "%d/%m/%Y"
+    Date::DATE_FORMATS[:default] = '%d/%m/%Y'
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

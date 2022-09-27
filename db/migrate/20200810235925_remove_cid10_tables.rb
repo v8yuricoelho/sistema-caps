@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemoveCid10Tables < ActiveRecord::Migration[6.0]
   def change
     drop_table :cid10_chapters

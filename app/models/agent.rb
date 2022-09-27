@@ -1,6 +1,9 @@
-class Agent < ApplicationRecord
-    validates :name, presence: true
+# frozen_string_literal: true
 
-    belongs_to :cnes
-    has_many :patients
+class Agent < ApplicationRecord
+  validates :name, presence: true
+  validates :email, :phone, uniqueness: true
+
+  belongs_to :cnes
+  has_many :patients
 end
