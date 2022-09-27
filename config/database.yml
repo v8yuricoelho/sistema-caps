@@ -10,3 +10,7 @@ development:
   <<: *default
   database: capsdb_dev
 
+test:
+  <<: *default
+  database: capsdb_test
+

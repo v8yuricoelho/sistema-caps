@@ -37,46 +37,12 @@ PsychoativeSubstance.create(name: 'Outras Drogas')
 
 ### ------------ FOR DEVELOPMENT TESTS ------------ ###
 5.times do
-  Agent.create({
-                 name: Faker::Name.name_with_middle,
-                 cnes_id: Cnes.all.sample.id,
-                 email: Faker::Internet.free_email,
-                 phone: Faker::PhoneNumber.cell_phone,
-                 address: Faker::Address.street_address
-               })
-end
-
-5.times do
-  Professional.create({
-                        name: Faker::Name.name_with_middle,
-                        cnes_id: Cnes.all.sample.id,
-                        function: Faker::Number.within(range: 0..3),
-                        email: Faker::Internet.free_email,
-                        phone: Faker::PhoneNumber.cell_phone,
-                        address: Faker::Address.street_address
-                      })
+  FactoryBot.create(:agent, cnes: Cnes.all.sample)
+  FactoryBot.create(:professional, cnes: Cnes.all.sample)
 end
 
 30.times do
-  Patient.create({
-                   medical_record_number: Faker::Number.unique.within(range: 1..30),
-                   name: Faker::Name.name_with_middle,
-                   gender: Faker::Number.within(range: 0..2),
-                   birthdate: Faker::Date.between(from: 110.years.ago, to: 2.years.ago),
-                   admission_date: Faker::Date.between(from: 10.years.ago, to: Date.today),
-                   age: Faker::Number.between(from: 2, to: 110),
-                   marital_status: Faker::Number.within(range: 0..3),
-                   mother_name: Faker::Name.name_with_middle,
-                   father_name: Faker::Name.name_with_middle,
-                   sus_card: Faker::Number.unique.number(digits: 15),
-                   cpf: Faker::IDNumber.unique.brazilian_citizen_number,
-                   rg: Faker::Number.unique.number(digits: 11),
-                   adress: Faker::Address.street_address,
-                   phone: Faker::PhoneNumber.cell_phone,
-                   status: Faker::Number.within(range: 0..1),
-                   cnes_id: Cnes.all.sample.id,
-                   agent_id: Agent.all.sample.id
-                 })
+  FactoryBot.create(:patient, cnes: Cnes.all.sample, agent: Agent.all.sample)
 end
 
 Patient.all.each do |patient|
