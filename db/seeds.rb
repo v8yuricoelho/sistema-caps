@@ -46,6 +46,17 @@ PsychoativeSubstance.create(name: 'Outras Drogas')
                })
 end
 
+5.times do
+  Professional.create({
+                        name: Faker::Name.name_with_middle,
+                        cnes_id: Cnes.all.sample.id,
+                        function: ['Psicólogo(a)', 'Psiquiatra', 'Enfermeiro(a)', 'Serviços Auxiliares'].sample,
+                        email: Faker::Internet.free_email,
+                        phone: Faker::PhoneNumber.cell_phone,
+                        address: Faker::Address.street_address
+                      })
+end
+
 30.times do
   Patient.create({
                    medical_record_number: Faker::Number.unique.within(range: 1..30),

@@ -7,7 +7,8 @@
 
         <div class="form-group col-2">
             <%= f.label "" %>
-            <%= f.select :function_cont, options_for_select(''), {include_blank: 'Cargo'}, class: 'form-control' %>
+            <%= f.text_field :function_cont, class: 'form-control', placeholder: 'Cargo' %>
+            <%#= f.select :function_cont, options_for_select(''), {include_blank: 'Cargo'}, class: 'form-control' %>
         </div>
 
         <div class="form-group col-3">
