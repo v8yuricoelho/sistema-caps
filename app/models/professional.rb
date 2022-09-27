@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Professional < ApplicationRecord
+  enum function: ['Psicólogo(a)', 'Psiquiatra', 'Enfermeiro(a)', 'Serviços Auxiliares']
+
   validates :name, presence: true
   validates :function, presence: true
 

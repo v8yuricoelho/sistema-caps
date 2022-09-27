@@ -50,7 +50,7 @@ end
   Professional.create({
                         name: Faker::Name.name_with_middle,
                         cnes_id: Cnes.all.sample.id,
-                        function: ['Psicólogo(a)', 'Psiquiatra', 'Enfermeiro(a)', 'Serviços Auxiliares'].sample,
+                        function: Faker::Number.within(range: 0..3),
                         email: Faker::Internet.free_email,
                         phone: Faker::PhoneNumber.cell_phone,
                         address: Faker::Address.street_address

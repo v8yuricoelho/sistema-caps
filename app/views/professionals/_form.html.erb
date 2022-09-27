@@ -10,8 +10,9 @@
 
         <div class="form-group form-row justify-content-center">
             <div class="col-7">
-                <%= f.label :function, 'Função' %>
-                <%= f.text_field :function, class: 'form-control', placeholder: 'Digite o cargo' %>
+                <%= f.label :function, 'Cargo' %>
+                <%= f.select :function, options_for_select(Professional.functions.map { |key, value| [key.humanize, key] }, selected: @professional.function), 
+                {include_blank: 'Selecione...'}, class: 'form-control' %>
             </div>
         </div>
 
