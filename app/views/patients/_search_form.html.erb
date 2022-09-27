@@ -7,7 +7,8 @@
 
          <div class="form-group col-2">
             <%= f.label "" %>
-            <%= f.collection_select(:psychoative_substances_name_cont, PsychoativeSubstance.all.order(:name), :name, :name, {include_blank: 'Substâncias'}, class:'form-control') %>
+            <%= f.collection_select(:psychoative_substances_name_cont, PsychoativeSubstance.all.order(:name), 
+            :name, :name, {include_blank: 'Substâncias'}, class:'form-control') %>
         </div>
 
         <div class="form-group col-2">

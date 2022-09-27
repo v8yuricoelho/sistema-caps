@@ -62,3 +62,9 @@ end
         agent_id: Agent.all.sample.id
     })
 end
+
+
+Patient.all.each do |patient|
+  patient.psychoative_substances.push(PsychoativeSubstance.all.sample)
+  patient.cid10s.push(Cid10.all.sample)
+end

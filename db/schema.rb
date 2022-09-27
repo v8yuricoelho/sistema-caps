@@ -96,8 +96,6 @@ ActiveRecord::Schema.define(version: 2020_08_19_141035) do
   create_table "patients_psychoative_substances", id: false, force: :cascade do |t|
     t.bigint "patient_id", null: false
     t.bigint "psychoative_substance_id", null: false
-    t.index ["patient_id", "psychoative_substance_id"], name: "index_patients_psubs_on_patient_id_and_psychoative_substance_id"
-    t.index ["psychoative_substance_id", "patient_id"], name: "index_patients_psubs_on_psychoative_substance_id_and_patient_id"
   end
 
   create_table "professionals", force: :cascade do |t|
@@ -113,9 +111,9 @@ ActiveRecord::Schema.define(version: 2020_08_19_141035) do
   end
 
   create_table "psychoative_substances", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
   end
 
 end

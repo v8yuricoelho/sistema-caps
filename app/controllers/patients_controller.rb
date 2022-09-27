@@ -6,7 +6,7 @@ class PatientsController < ApplicationController
   end
 
   def create
-    @patient = Patient.create(patient_params)
+    @patient = Patient.new(patient_params)
     
     respond_to do |format|
       if @patient.save
