@@ -12,9 +12,9 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.save
-        format.html { redirect_to @patient }
+        format.html { redirect_to @patient, status: :created }
       else
-        format.html { render :new }
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
@@ -22,9 +22,9 @@ class PatientsController < ApplicationController
   def update
     respond_to do |format|
       if @patient.update(patient_params)
-        format.html { redirect_to @patient }
+        format.html { redirect_to @patient, status: :ok }
       else
-        format.html { render :edit }
+        format.html { render :edit, status: :unprocessable_entity }
       end
     end
   end
@@ -41,8 +41,8 @@ class PatientsController < ApplicationController
   private
 
   def patient_params
-    params.require(:patient).permit(:medical_record_number, :name, :gender, :birthdate, :admission_date, :age, :marital_status, :mother_name, :father_name,
-                                    :sus_card, :cpf, :rg, :county, :adress, :phone, :cnes_id, :status, :agent_id, psychoative_substance_ids: [], cid10_ids: [])
+    params.permit(:medical_record_number, :name, :gender, :birthdate, :admission_date, :age, :marital_status, :mother_name, :father_name,
+                  :sus_card, :cpf, :rg, :county, :adress, :phone, :cnes_id, :status, :agent_id, psychoative_substance_ids: [], cid10_ids: [])
   end
 
   def set_patient
