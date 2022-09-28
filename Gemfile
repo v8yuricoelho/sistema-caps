@@ -39,6 +39,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   # A library for generating fake data such as names, addresses, and phone numbers. 
   gem 'faker'
+  # A runtime developer console and IRB alternative with powerful introspection capabilities. 
+  gem 'pry'
 end
 
 group :development do

@@ -12,9 +12,9 @@ class AgentsController < ApplicationController
 
     respond_to do |format|
       if @agent.save
-        format.html { redirect_to @agent }
+        format.html { redirect_to @agent, status: :created }
       else
-        format.html { render :new }
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
@@ -22,9 +22,9 @@ class AgentsController < ApplicationController
   def update
     respond_to do |format|
       if @agent.update(agent_params)
-        format.html { redirect_to @agent }
+        format.html { redirect_to @agent, status: :ok }
       else
-        format.html { render :edit }
+        format.html { render :edit, status: :unprocessable_entity }
       end
     end
   end
@@ -41,7 +41,7 @@ class AgentsController < ApplicationController
   private
 
   def agent_params
-    params.require(:agent).permit(:name, :email, :phone, :address, :cnes_id)
+    params.permit(:name, :email, :phone, :address, :cnes_id)
   end
 
   def set_agent
