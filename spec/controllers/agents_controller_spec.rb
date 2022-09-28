@@ -63,14 +63,14 @@ RSpec.describe AgentsController, type: :controller do
 
   describe 'PATCH update' do
     it 'when validations are successful' do
-      patch :update, params: {id: agent.id, email: Faker::Internet.free_email }
+      patch :update, params: { id: agent.id, email: Faker::Internet.free_email }
       expect(response).to have_http_status '200'
       get :show, params: { id: agent.id }
       expect(response).to have_http_status '200'
     end
 
     it 'when validations are not successful' do
-      patch :update, params: {id: agent.id, name: nil }
+      patch :update, params: { id: agent.id, name: nil }
       expect(response).to have_http_status '422'
       get :edit, params: { id: agent.id }
       expect(response).to have_http_status '200'
