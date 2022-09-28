@@ -5,8 +5,8 @@ FactoryBot.define do
     association :cnes
 
     name { Faker::Name.name_with_middle }
-    email { Faker::Internet.free_email }
-    phone { Faker::PhoneNumber.cell_phone }
+    email { Faker::Internet.unique.free_email }
+    phone { Faker::PhoneNumber.unique.cell_phone }
     address { Faker::Address.street_address }
   end
 end

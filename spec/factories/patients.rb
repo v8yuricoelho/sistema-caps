@@ -18,7 +18,7 @@ FactoryBot.define do
     cpf { Faker::IDNumber.unique.brazilian_citizen_number }
     rg { Faker::Number.unique.number(digits: 11) }
     adress { Faker::Address.street_address }
-    phone { Faker::PhoneNumber.cell_phone }
+    phone { Faker::PhoneNumber.unique.cell_phone }
     status { Faker::Number.within(range: 0..1) }
   end
 end

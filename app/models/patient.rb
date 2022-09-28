@@ -16,6 +16,7 @@ class Patient < ApplicationRecord
   validates :cpf, presence: true, uniqueness: true, length: { is: 11 }, case_sensitive: false
   validates :rg, presence: true, uniqueness: true, length: { in: 9..11 }, case_sensitive: false
   validates :adress, presence: true
+  validates :phone, uniqueness: true
   validates :status, presence: true
 
   belongs_to :cnes

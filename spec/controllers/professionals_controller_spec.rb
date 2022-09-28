@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe AgentsController, type: :controller do
-  let(:agent) { create(:agent) }
+RSpec.describe ProfessionalsController, type: :controller do
+  let(:professional) { create(:professional) }
 
   describe 'GET index' do
     it 'renders the index template' do
@@ -14,7 +14,7 @@ RSpec.describe AgentsController, type: :controller do
 
   describe 'GET show' do
     it 'renders the show template' do
-      get :show, params: { id: agent.id }
+      get :show, params: { id: professional.id }
       expect(response).to have_http_status '200'
     end
   end
@@ -28,15 +28,16 @@ RSpec.describe AgentsController, type: :controller do
 
   describe 'GET edit' do
     it 'renders the edit template' do
-      get :edit, params: { id: agent.id }
+      get :edit, params: { id: professional.id }
       expect(response).to have_http_status '200'
     end
   end
 
   describe 'POST create' do
     let(:cnes) { create(:cnes) }
-    let(:agent_params) do
+    let(:professional_params) do
       {
+        function: ['Psicólogo(a)', 'Psiquiatra', 'Enfermeiro(a)', 'Serviços Auxiliares'].sample,
         name: Faker::Name.name_with_middle,
         email: Faker::Internet.unique.free_email,
         phone: Faker::PhoneNumber.unique.cell_phone,
@@ -46,15 +47,15 @@ RSpec.describe AgentsController, type: :controller do
     end
 
     it 'when validations are successful' do
-      post :create, params: agent_params
+      post :create, params: professional_params
       expect(response).to have_http_status '201'
-      get :show, params: { id: Agent.find_by(email: agent_params[:email]).id }
+      get :show, params: { id: Professional.find_by(email: professional_params[:email]).id }
       expect(response).to have_http_status '200'
     end
 
     it 'when validations are not successful' do
-      agent_params[:name] = nil
-      post :create, params: agent_params
+      professional_params[:name] = nil
+      post :create, params: professional_params
       expect(response).to have_http_status '422'
       get :new
       expect(response).to have_http_status '200'
@@ -63,16 +64,16 @@ RSpec.describe AgentsController, type: :controller do
 
   describe 'PATCH update' do
     it 'when validations are successful' do
-      patch :update, params: { id: agent.id, email: Faker::Internet.free_email }
+      patch :update, params: { id: professional.id, email: Faker::Internet.free_email }
       expect(response).to have_http_status '200'
-      get :show, params: { id: agent.id }
+      get :show, params: { id: professional.id }
       expect(response).to have_http_status '200'
     end
 
     it 'when validations are not successful' do
-      patch :update, params: { id: agent.id, name: nil }
+      patch :update, params: { id: professional.id, name: nil }
       expect(response).to have_http_status '422'
-      get :edit, params: { id: agent.id }
+      get :edit, params: { id: professional.id }
       expect(response).to have_http_status '200'
     end
   end

@@ -27,6 +27,7 @@ RSpec.describe Patient, type: :model do
     it { should validate_uniqueness_of(:sus_card).case_insensitive }
     it { should validate_uniqueness_of(:cpf).case_insensitive }
     it { should validate_uniqueness_of(:rg).case_insensitive }
+    it { should validate_uniqueness_of(:phone).case_insensitive }
 
     it { should validate_length_of(:sus_card).is_equal_to(15) }
     it { should validate_length_of(:cpf).is_equal_to(11) }

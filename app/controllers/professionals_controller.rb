@@ -12,9 +12,9 @@ class ProfessionalsController < ApplicationController
 
     respond_to do |format|
       if @professional.save
-        format.html { redirect_to @professional }
+        format.html { redirect_to @professional, status: :created }
       else
-        format.html { render :new }
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
@@ -22,9 +22,9 @@ class ProfessionalsController < ApplicationController
   def update
     respond_to do |format|
       if @professional.update(professional_params)
-        format.html { redirect_to @professional }
+        format.html { redirect_to @professional, status: :ok }
       else
-        format.html { render :edit }
+        format.html { render :edit, status: :unprocessable_entity }
       end
     end
   end
@@ -41,7 +41,7 @@ class ProfessionalsController < ApplicationController
   private
 
   def professional_params
-    params.require(:professional).permit(:name, :function, :email, :phone, :address, :cnes_id)
+    params.permit(:name, :function, :email, :phone, :address, :cnes_id)
   end
 
   def set_professional
