@@ -19,6 +19,7 @@
     * Rode os testes com `rspec`.
 
   * Comentários do Dev
+    * Projeto incompleto;
     * Este é um projeto pessoal o qual iniciei em 2019, logo após ingressar nos estudos de Ruby on Rails, ferramenta na qual trabalho até hoje;
     * A idéia era aprender, gerar portfólio e uma aplicação de valor que ajudaria pessoas próximas;
     * Há alguns erros e más implementações típicas de um dev iniciante (e talvez outras de um dev já mais experiente mesmo =P)
